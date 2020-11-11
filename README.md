@@ -29,5 +29,5 @@ Not implement yet.
 
 ## Refer to
 * https://github.com/gaston770/python-chord
-
-
+* https://zhuanlan.zhihu.com/p/53711866
+* https://blog.csdn.net/sparkliang/article/details/5679926
