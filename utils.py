@@ -1,4 +1,5 @@
-from settings import __m__ 
+import hashlib
+from settings import __m__
 
 def in_range(a :int, range :str):
     ''' 
@@ -31,14 +32,23 @@ def in_range(a :int, range :str):
 
 
 def hash_m(a :str):
-    ''' 
-         return a fixed length (len == m) hash value
-    '''
-    return 1<<__m__
+    # if(__m__ >= 8):
+    #     return int(hashlib.shake_256(a.encode('utf-8')).hexdigest(__m__ >> 3), 16) % (1 << __m__)
+    # b = bin(int(hashlib.shake_256(a.encode('utf-8')).hexdigest(1), 16))
+    # return int(b[2 : 2+__m__], 2) % (1 << __m__)
+    return int(hashlib.sha1(a.encode('utf-8')).hexdigest(), 16) % (1 << __m__)
+
 
 
 if __name__ == '__main__':
-    print('test in_range(), __m__ = ', __m__)
-    print('7 in [5,2]', in_range(7, '[5,2]'))
-    print('9 in [5,2]', in_range(9, '[5,2]'))
+    # print('test in_range(), __m__ = ', __m__)
+    # print('7 in [5,2]', in_range(7, '[5,2]'))
+    # print('9 in [5,2]', in_range(9, '[5,2]'))
+    print(1 << __m__)
+    print(hash_m('127.0.0.1:5000'))
+    print(hash_m('127.0.0.1:5001'))
+    print(hash_m('abc'))
+    print(hash_m('0.0.0.0:5000'))
+
+
          

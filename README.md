@@ -2,6 +2,9 @@
 
 A toy program wishing to get a distributed file system based on Chord
 
+1) Assume write once, read many in future; no append; no seek
+2) No multi-reading or multi-writing...
+
 ## Table of Contents
 
 - [Background](#backgroud)
@@ -17,10 +20,10 @@ TODO
 
 ## Install 
 
-The project based on python=3.6.0. Install requirements using: (if have)
+The project based on python=3.6, zmq(should be installed like):
 
 ```sh
-$ pip install -r requirements.txt
+$ pip install zmq
 ```
 
 ## Usage

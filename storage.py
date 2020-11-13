@@ -51,6 +51,9 @@ class StorageComponent(object):
             return "No such file"
         return tmp[0].content
 
-    def write(self, fileName: str, content: str) -> None:
+    def write(self, fileName: str, content: str) -> str:
         tmp = [file for file in self.files if file.name == fileName]
+        if len(tmp) == 0:
+            return "No such file"
         tmp[0].write(content)
+        return "Succeed"
