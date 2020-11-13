@@ -23,17 +23,18 @@ class Server(object):
     def ls(self) -> str:
         return str(self.sc.ls())
 
-    def touch(self, fileName: str) -> str:
-        self.sc.touch(fileName)
+    def touch(self, request: str) -> str:
+        self.sc.touch(request)
         return 'touch file succeed'
 
-    def rm(self, fileName: str) -> str:
-        return self.sc.rm(fileName)
+    def rm(self, request: str) -> str:
+        return self.sc.rm(request)
 
-    def cat(self, fileName: str) -> str:
-        return self.sc.cat(fileName)
+    def cat(self, request: str) -> str:
+        return self.sc.cat(request)
 
-    def write(self, fileName: str, content: str) -> str:
+    def write(self, request: str) -> str:
+        fileName, content = request.strip().split(' ')
         return self.sc.write(fileName, content)
 
     def circleTest(self, addr):
