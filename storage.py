@@ -2,7 +2,7 @@ import os
 
 
 class FILE(object):
-    '''A virtual file without a actual storage.
+    """A virtual file without a actual storage.
 
     Be referred to POSIX I/O standard, except the file statement (so there is no open(), close(), lseek(),...)
     Make sure you carefully considering the PageCache or Locks if you try to store the real file (ANSI C stdio or DB).
@@ -10,7 +10,7 @@ class FILE(object):
     Attributes:
         name: A str indicating the filename.
         content: The file's content.
-    '''
+    """
 
     def __init__(self, name: str, content: str = ""):
         self.name = name
@@ -24,11 +24,11 @@ class FILE(object):
 
 
 class StorageComponent(object):
-    '''Manage files stored on server
+    """Manage files stored on server
 
     For simplification, there is only one dir (no cd(), mkdir(), cp(),...)
     While using virtual files, we consider there is always no file before the component start.
-    '''
+    """
     def __init__(self):
         self.files = []
 
